@@ -60,3 +60,33 @@ export function tokenizedFilter<T>(
         return tokens.every((token) => fields.some((field) => field.includes(token)));
     });
 }
+
+/**
+ * Partition `items` so selected entries appear at the top while preserving original relative order,
+ * unless the list stays below `minItemsToPin`.
+ */
+export function pinSelectedToTop<T>(
+    items: readonly T[],
+    isSelected: (item: T) => boolean,
+    minItemsToPin = 12,
+): T[] {
+    if (items.length < minItemsToPin) {
+        return [...items];
+    }
+
+    const pinned: T[] = [];
+    const rest: T[] = [];
+    for (const item of items) {
+        if (isSelected(item)) {
+            pinned.push(item);
+        } else {
+            rest.push(item);
+        }
+    }
+
+    if (pinned.length === 0) {
+        return [...items];
+    }
+    return [...pinned, ...rest];
+}
+
