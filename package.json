@@ -1,0 +1,25 @@
+{
+  "name": "ts-tiny-search",
+  "version": "0.2.0",
+  "description": "Zero-dependency TypeScript utilities for Unicode-normalized tokenized search and stable selection pinning.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "keywords": [
+    "search",
+    "filter",
+    "unicode",
+    "typescript",
+    "zero-dependency"
+  ],
+  "author": "ryancooper312 <lixianzxc@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
